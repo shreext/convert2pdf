@@ -7,7 +7,7 @@ const { exec } = require("child_process");
 const fs = require("fs");
 const { createServer } = require("http");
 
-const PORT = process.env.PORT || 3000; // Use Railway’s assigned port
+const PORT = process.env.PORT || 3080; // Use Railway’s assigned port
 
 const UPLOAD_FOLDER = "uploads";
 const CONVERTED_FOLDER = "converted";
