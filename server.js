@@ -35,8 +35,8 @@ app.get('/', (req, res) => {
 });
 
 // Doc Index Html File
-app.get("/docIndex", (req, res) => {
-    res.sendFile(path.join(__dirname, 'public/views/docIndex.html'));
+app.get("/doc-to-pdf", (req, res) => {
+    res.sendFile(path.join(__dirname, 'public/views/doc-to-pdf.html'));
 });
 
 // Doc Index Handle file upload and conversion
@@ -75,8 +75,8 @@ app.post("/docConvert", upload.single("file"), (req, res) => {
 });
 
 // Excel Index Html File
-app.get("/excelIndex", (req, res) => {
-    res.sendFile(path.join(__dirname, 'public/views/excelIndex.html'));
+app.get("/excel-to-pdf", (req, res) => {
+    res.sendFile(path.join(__dirname, 'public/views/excel-to-pdf.html'));
 });
 
 // Excel Index Handle file upload and conversion
@@ -119,8 +119,8 @@ app.post("/excelConvert", upload.single("excel"), (req, res) => {
 
 
 // PPT Index Html File
-app.get("/pptIndex", (req, res) => {
-    res.sendFile(path.join(__dirname, 'public/views/pptIndex.html'));
+app.get("/ppt-to-pdf", (req, res) => {
+    res.sendFile(path.join(__dirname, 'public/views/ppt-to-pdf.html'));
 });
 
 // Ppt Index Handle file upload and conversion

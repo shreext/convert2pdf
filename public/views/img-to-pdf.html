@@ -13,9 +13,9 @@
     <meta charset="UTF-8">
     <meta name="robots" content="index, follow">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>100% Free PDF Converter Online - Rotate your PDF for free - Convert2PDF</title>
+    <title>100% Free IMG & PDF Converter Online - Convert IMG into PDF - Convert2PDF</title>
 
-    <meta name="description" content="Rotate your PDF for free - Convert Word, Excel, JPG, PNG, and more to PDF instantly. 100% free, no registration, and secure.">
+    <meta name="description" content="Convert IMG into PDF - Convert Word, Excel, JPG, PNG, and more to PDF instantly. 100% free, no registration, and secure.">
     <meta name="keywords" content="PDF converter, 100% FREE PDF converter, FREE PDF converter, Word to PDF, Excel to PDF, JPG to PDF, PPT to PDF, PowerPoint to PDF, Merge PDF, Split PDF, Rotate PDF, free PDF tool, 100% free PDF tool, online document conversion">
     
     <!-- Open Graph / Social Meta (For LinkedIn, Twitter, etc.) -->
@@ -42,21 +42,23 @@
 
  
     <link rel="stylesheet" href="/css/style.css">
-    <link rel="stylesheet" href="/css/rotateStyle.css">
-    <!-- Popunder ads 2nd -->
-
-    <script type='text/javascript' src='//pl26337057.profitableratecpm.com/23/80/e6/2380e6570f63aeef5a4906e6f85eee06.js'></script>
+    <link rel="stylesheet" href="/css/imgToPdfStyle.css">
     <script type="application/ld+json">
         {
           "@context": "https://schema.org",
           "@type": "WebApplication",
-          "name": "Rotate PDF - Convert2PDF",
-          "description": "Rotate PDF pages 90° or 180° online. Fix upside-down documents instantly.",
+          "name": "Image to PDF - Convert2PDF",
+          "description": "Convert JPG, PNG, or GIF to PDF online. Preserve quality, no file size limits.",
           "potentialAction": {
-            "@type": "RotateAction",
+            "@type": "ConvertAction",
             "target": {
               "@type": "EntryPoint",
-              "urlTemplate": "https://convert2pdf.koyeb.app/rotate-pdf"
+              "urlTemplate": "https://convert2pdf.koyeb.app/img-to-pdf"
+            },
+            "result": {
+              "@type": "DigitalDocument",
+              "name": "Converted PDF",
+              "fileFormat": "application/pdf"
             }
           }
         }
@@ -105,31 +107,20 @@
 
     <main>
         <h1>Every tool you need to use PDFs, at your fingertips</h1>
-        <p class="subtitle">Rotate PDF pages to any angle with just a few clicks.</p>
+        <p class="subtitle">Convert your images to PDF with just a few clicks.</p>
 
         <div class="tools-grid">
             <div class="tool-card">
-                <h3>Rotate PDF</h3>
-                <p>Select a PDF file and rotate its pages to any angle. Perfect for fixing scanned documents.</p>
+                <h3>Images to PDF</h3>
+                <p>Convert multiple images into a single PDF file. Supported formats: JPG, PNG, GIF, BMP.</p>
                 
                 <div class="upload-area" id="uploadArea">
-                    <input type="file" id="fileInput" class="file-input" accept="application/pdf" hidden/>
-                    <button id="addButton">Select PDF File</button>
+                    <input type="file" id="fileInput" class="file-input" accept="image/*" multiple hidden/>
+                    <button id="addButton">Select Image Files</button>
                 </div>
 
-                <div class="pages-container" id="pagesContainer">
-                    <div class="rotation-controls">
-                        <button id="rotateLeft" class="rotate-btn" title="Rotate Left" disabled>
-                            <span class="rotate-icon">↺</span>
-                        </button>
-                        <button id="rotateRight" class="rotate-btn" title="Rotate Right" disabled>
-                            <span class="rotate-icon">↻</span>
-                        </button>
-                    </div>
-                    <div class="page-grid" id="pageGrid"></div>
-                </div>
-
-                <button id="saveButton" class="save-btn" disabled>Save Rotated PDF</button>
+                <div class="image-list" id="imageList"></div>
+                <button id="convertButton" disabled>Convert to PDF</button>
                 <div class="progress" id="progress"></div>
             </div>
         </div>
@@ -147,8 +138,8 @@
     </div>
     
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.11.338/pdf.min.js"></script>
     <script src="https://unpkg.com/pdf-lib/dist/pdf-lib.min.js"></script>
-    <script src="/js/rotateScript.js"></script>
+    <script src="/js/imgToPdfScript.js"></script>
 </body>
 </html>
+
