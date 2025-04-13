@@ -67,15 +67,12 @@ convertButton.addEventListener('click', async () => {
                 viewport: viewport
             }).promise;
 
-            // Create image item container
-            const imageItem = document.createElement('div');
-            imageItem.className = 'image-item';
-
             // Convert canvas to image and add download button
             canvas.toBlob((blob) => {
                 const img = document.createElement('img');
                 const url = URL.createObjectURL(blob);
                 img.src = url;
+                img.className = 'page-thumbnail';
 
                 const downloadBtn = document.createElement('a');
                 downloadBtn.href = url;
@@ -83,8 +80,11 @@ convertButton.addEventListener('click', async () => {
                 downloadBtn.className = 'download-btn';
                 downloadBtn.textContent = 'Download Image';
 
+                const imageItem = document.createElement('div');
+                imageItem.className = 'page-item';
                 imageItem.appendChild(img);
                 imageItem.appendChild(downloadBtn);
+
                 imageContainer.appendChild(imageItem);
             }, 'image/png');
         }

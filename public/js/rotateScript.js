@@ -91,18 +91,36 @@ async function handleFile(file) {
             
             const pageNumber = document.createElement('div');
             pageNumber.className = 'page-number';
-            pageNumber.textContent = i;
+            pageNumber.textContent = `Page ${i}`;
             
+            // Add rotation controls for each page
+            const rotationControls = document.createElement('div');
+            rotationControls.className = 'rotation-controls';
+
+            const rotateLeftButton = document.createElement('button');
+            rotateLeftButton.className = 'rotate-btn';
+            rotateLeftButton.textContent = '↺';
+            rotateLeftButton.title = 'Rotate Left';
+            rotateLeftButton.addEventListener('click', () => rotatePage(i, -90));
+
+            const rotateRightButton = document.createElement('button');
+            rotateRightButton.className = 'rotate-btn';
+            rotateRightButton.textContent = '↻';
+            rotateRightButton.title = 'Rotate Right';
+            rotateRightButton.addEventListener('click', () => rotatePage(i, 90));
+
+            rotationControls.appendChild(rotateLeftButton);
+            rotationControls.appendChild(rotateRightButton);
+
             pageItem.appendChild(canvas);
-            pageItem.appendChild(pageNumber);
+            // pageItem.appendChild(pageNumber);
+            pageItem.appendChild(rotationControls);
             pageGrid.appendChild(pageItem);
             
             pageRotations[i] = 0;
         }
         
         progress.textContent = '';
-        rotateLeft.disabled = false;
-        rotateRight.disabled = false;
         saveButton.disabled = false;
         
     } catch (error) {
@@ -111,23 +129,12 @@ async function handleFile(file) {
     }
 }
 
-rotateLeft.addEventListener('click', () => rotatePages(-90));
-rotateRight.addEventListener('click', () => rotatePages(90));
+function rotatePage(pageNumber, angle) {
+    pageRotations[pageNumber] = (pageRotations[pageNumber] + angle + 360) % 360;
 
-function rotatePages(angle) {
-    const selectedPages = document.querySelectorAll('.page-item.selected');
-    if (selectedPages.length === 0) {
-        alert('Please select at least one page to rotate.');
-        return;
-    }
-
-    selectedPages.forEach(pageItem => {
-        const pageNumber = parseInt(pageItem.dataset.pageNumber);
-        pageRotations[pageNumber] = (pageRotations[pageNumber] + angle + 360) % 360;
-        
-        const canvas = pageItem.querySelector('canvas');
-        canvas.style.transform = `rotate(${pageRotations[pageNumber]}deg)`;
-    });
+    const pageItem = document.querySelector(`.page-item[data-page-number="${pageNumber}"]`);
+    const canvas = pageItem.querySelector('canvas');
+    canvas.style.transform = `rotate(${pageRotations[pageNumber]}deg)`;
 }
 
 pageGrid.addEventListener('click', (e) => {

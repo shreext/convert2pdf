@@ -268,7 +268,7 @@ h1 {
     margin: 0 auto;
 }
 
-/* .tool-card h3 {
+.tool-card h3 {
     font-size: 1.5rem;
     margin-bottom: 1rem;
     color: var(--text-color);
@@ -278,23 +278,7 @@ h1 {
     color: #666;
     margin-bottom: 2rem;
     max-width: 400px;
-} */
-
-/* .upload-area {
-    border: 2px dashed var(--border-color);
-    border-radius: 8px;
-    padding: 2rem;
-    margin: 2rem 0;
-    cursor: pointer;
-    transition: border-color 0.3s ease;
-    width: 100%;
-    max-width: 400px;
-    text-align: center;
 }
-
-.upload-area:hover {
-    border-color: var(--primary-color);
-} */
 
 #addButton {
     background: var(--primary-color);
@@ -443,6 +427,100 @@ h1 {
 }
 
 /* ----------------------------------------------------------------------------------------------------- */
+
+/* Start of Card Styles */
+.card {
+    background: var(--light-gray);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    text-align: left;
+}
+
+.card h2 {
+    font-size: 1.5rem;
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+}
+
+.card ul, .card ol {
+    margin: 0;
+    padding-left: 1.5rem;
+    color: var(--text-color);
+}
+
+.card ul li, .card ol li {
+    margin-bottom: 0.5rem;
+    line-height: 1.5;
+}
+
+.card h3 {
+    font-size: 1.2rem;
+    color: var(--secondary-color);
+    margin-top: 1rem;
+}
+
+.card p {
+    margin: 0.5rem 0;
+    color: var(--text-color);
+    line-height: 1.6;
+}
+/* End of Card Styles */
+
+/* Start of Tool Section Styles */
+.tool-card {
+    background: white;
+    border-radius: 8px;
+    padding: 2rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.tool-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: var(--text-color);
+}
+
+.tool-card p {
+    color: #666;
+    margin-bottom: 2rem;
+    max-width: 400px;
+}
+/* End of Tool Section Styles */
+
+/* Responsive Adjustments for Cards */
+@media (max-width: 768px) {
+    .card, .tool-card {
+        padding: 1rem;
+    }
+
+    .card h2, .tool-card h3 {
+        font-size: 1.25rem;
+    }
+
+    .card ul li, .card ol li, .tool-card p {
+        font-size: 0.95rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .card, .tool-card {
+        padding: 0.75rem;
+    }
+
+    .card h2, .tool-card h3 {
+        font-size: 1rem;
+    }
+
+    .card ul li, .card ol li, .tool-card p {
+        font-size: 0.85rem;
+    }
+}
 
 @media (max-width: 768px) {
     nav {
