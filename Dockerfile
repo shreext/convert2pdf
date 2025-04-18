@@ -16,7 +16,7 @@ RUN npm install
 
 COPY . .
 
-EXPOSE 3000
+EXPOSE 3080
 
 
 # Start a virtual display and then run your server
