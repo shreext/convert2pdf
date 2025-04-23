@@ -34,6 +34,46 @@ app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, 'public/views/index.html'));
 });
 
+// Merge Index Html File
+app.get("/merge", (req, res) => {
+    res.sendFile(path.join(__dirname, 'public/views/merge.html'));
+});
+
+// Split Index Html File
+app.get("/split", (req, res) => {
+    res.sendFile(path.join(__dirname, 'public/views/split.html'));
+});
+
+// PDFTOIMG Index Html File
+app.get("/pdf-to-img", (req, res) => {
+    res.sendFile(path.join(__dirname, 'public/views/pdf-to-img.html'));
+});
+
+// IMGTOPDF Index Html File
+app.get("/img-to-pdf", (req, res) => {
+    res.sendFile(path.join(__dirname, 'public/views/img-to-pdf.html'));
+});
+
+// Rotate Index Html File
+app.get("/rotate", (req, res) => {
+    res.sendFile(path.join(__dirname, 'public/views/rotate.html'));
+});
+
+// Privacy Index Html File
+app.get("/privacy", (req, res) => {
+    res.sendFile(path.join(__dirname, 'public/views/privacy-policy.html'));
+});
+
+// Terms Index Html File
+app.get("/terms", (req, res) => {
+    res.sendFile(path.join(__dirname, 'public/views/terms.html'));
+});
+
+// Disclaimer Index Html File
+app.get("/disclaimer", (req, res) => {
+    res.sendFile(path.join(__dirname, 'public/views/disclaimer.html'));
+});
+
 // Doc Index Html File
 app.get("/doc-to-pdf", (req, res) => {
     res.sendFile(path.join(__dirname, 'public/views/doc-to-pdf.html'));
